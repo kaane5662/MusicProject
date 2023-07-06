@@ -11,6 +11,15 @@
     background-color: rgba(255,255,255,.1);
 }
 
+.postImage:hover {
+    background-color: rgba(111, 255, 233, .2) !important;
+    min-width: 190px !important;
+    min-height: 190px !important;
+    transition: .5s !important;
+    border-radius: 10px;
+    background-color: rgba(255,255,255,.1);
+}
+
 .content-1 {
     line-height: 10px;
     margin-top: -5px;

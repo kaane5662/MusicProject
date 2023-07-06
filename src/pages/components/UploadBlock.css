@@ -2,12 +2,24 @@
     background-color: #1c2541 !important;
     height: 600px;
     width: 400px;
-    align-self: center;
+    align-self: center !important;
     border-radius: 15px;
     position: fixed;
     left: 40%;
 }
 
+.upload-container:disabled{
+    height: 100px;
+    width: 75px;
+    transition: 3s;
+}
+
+.upload-container:active {
+    height: 600px;
+    width: 400px;
+    transition: 3s;
+
+}
 
 .upload {
     padding: 25px;

@@ -5,7 +5,7 @@ import "./FavoriteBlock.css"
 
 export default function FavoriteBlock(props){
     return (
-        <div className="container">
+        <div className="container" onClick={()=> props.func(props.songRef, props.songName, props.artistName, props.songId)}>
             <img src="" alt="" className="postImage" />
             <div className="content-1">
                 <p className="song-name-1">{props.songName}</p>

@@ -53,6 +53,7 @@ export default function Home(){
     const [isPlaying, setIsPlaying] = useState(false)
     const [duration, setDuration] = useState(0)
     const [volumeState, setVolumeState] = useState(faVolumeUp)
+    const [currentSongId, setCurrentSongId] = useState()
 
     const [playerSongName, setPlayerSongName] = useState("__")
     const [playerArtistName, setPlayerArtistName] = useState("__")
@@ -76,22 +77,28 @@ export default function Home(){
     }
 
     async function getTrendingSongs(){
-        const trendingQuery = query(collection(db, "songs"), orderBy("views", "desc"), limit(4));
+        const trendingQuery = query(collection(db, "songs"), orderBy("views", "desc"), limit(5));
         const trendingDocs = await getDocs(trendingQuery)
         const tempSongs = []
         trendingDocs.forEach((doc)=>{
-            tempSongs.push(doc.data())
+            let songData = doc.data()
+            songData["songId"] = doc.id
+            console.log(songData.songId)
+            tempSongs.push(songData)
         })
         setTrendingSongsList(tempSongs)
         
     }
 
     async function getMostFavoritedSongs(){
-        const favoritedQuery = query(collection(db, "songs"), orderBy("likes", "desc"), limit(3));
+        const favoritedQuery = query(collection(db, "songs"), orderBy("likes", "desc"), limit(8));
         const favoritedDocs = await getDocs(favoritedQuery)
         const tempSongs = []
         favoritedDocs.forEach((doc)=>{
-            tempSongs.push(doc.data())
+            let songData = doc.data()
+            songData["songId"] = doc.id
+            console.log(songData.songId)
+            tempSongs.push(songData)
         })
         setFavoritedSongsList(tempSongs)
     }
@@ -137,6 +144,7 @@ export default function Home(){
             setPlayerSongName(songName)
             setPlayerArtistName(artistName)
             viewSong(songId)
+            setCurrentSongId(songId)
         }).catch((err) =>{
             console.log(err)
         })
@@ -199,13 +207,13 @@ export default function Home(){
            
             <div className = "container">
                 {promptActive ? <UploadBlock func = {setPromptActive} ></UploadBlock> : null }
-                <h1 class = 'welcome'>Welcome Kaan</h1>
+                <h1 class = 'welcome'>Trending Songs</h1>
                 <p className="uploadSong" onClick={()=> setPromptActive(!promptActive)}>Upload</p>
                     <div className="recent">
                         {
                             trendingSongsList.map((song, index)=>{
                                 return (
-                                    <TrendBlock songName = {song.songName} artistName = {song.artistName} key = {index}></TrendBlock>
+                                    <TrendBlock songName = {song.songName} artistName = {song.artistName} views = {song.views} key = {index} func = {setSong} likeFunc = {likeSong} songId = {song.songId} songRef = {song.songRef} ></TrendBlock>
                                 )
                             })
                         }
@@ -215,13 +223,13 @@ export default function Home(){
                         {
                             favoritedSongsList.map((song, index)=>{
                                 return (
-                                    <FavoriteBlock songName = {song.songName} artistName = {song.artistName} key = {index}></FavoriteBlock>
+                                    <FavoriteBlock songName = {song.songName} artistName = {song.artistName} views = {song.views} key = {index} func = {setSong} likeFunc = {likeSong} songId = {song.songId} songRef = {song.songRef}></FavoriteBlock>
                                 )
                             })
                         }
 
                     </div>
-                <div className="songs">
+                <div className="songs songsList">
                     {
                         songsList.map((song, index)=>{
                             return (
@@ -245,7 +253,7 @@ export default function Home(){
                 </div>
                 <input type = 'range' value = {duration.toString()} min = "0" onChange={e => setTrackDuration(e)} max = "100" className="main-slider"></input>
                 <div className="player-right">
-                    <FontAwesomeIcon icon={faHeart} className="ppIcon"></FontAwesomeIcon>
+                    <FontAwesomeIcon icon={faHeart} onClick={()=> likeSong(currentSongId)} className="ppIcon"></FontAwesomeIcon>
                     <FontAwesomeIcon icon={volumeState} className="ppIcon"></FontAwesomeIcon>
                     <input type = 'range' min = "0" onChange={e => setTrackVolume(e)} max = "10" className="volume-slider"></input>
                 </div>

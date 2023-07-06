@@ -7,13 +7,9 @@
 
 .background:hover {
     background-color: rgba(111, 255, 233, .2);
-    transition: 1s;
-    
-}
-
-.background:after {
-    background-color: rgba(255,255,255,.1);
-    transition: .5s ;
+    transition: .5s;
+    min-width: 425px;
+    min-height: 190px;
 }
 
 .content {
