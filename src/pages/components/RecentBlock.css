@@ -1,0 +1,40 @@
+.recentBlock {
+    min-width: 300px;
+    min-height: 100px;
+    background-color: #1c2541;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+}
+
+.welcome {
+    color : #6fffe9;
+}
+
+.blockContent {
+    min-width: 35%;
+    min-height: 100%;
+    background-color: yellow;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    border-radius: 10px;
+    overflow: hidden;
+
+}
+
+.playButton {
+    color: red;
+    font-size: 20px;
+}
+
+.blockText {
+    min-width: 100%;
+    max-width: 100%;
+    font-size: 20px;
+    color: white;
+    margin-left: 10px;
+
+
+}

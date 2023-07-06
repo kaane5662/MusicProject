@@ -1,0 +1,86 @@
+.upload-container {
+    background-color: #1c2541 !important;
+    height: 600px;
+    width: 400px;
+    align-self: center;
+    border-radius: 15px;
+    position: fixed;
+    left: 40%;
+}
+
+
+.upload {
+    padding: 25px;
+    align-self: center;
+    gap: 20px;
+    
+}
+
+.label {
+    font-weight: bold;
+    color: white;
+    font-size: 30px;
+}
+
+.input-block {
+    min-width: 100px;
+    min-height: 50px;
+    margin-bottom: 7.5%;
+    border-bottom: 2px #6fffe9 solid;  
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-radius: 5px;
+    background-color: rgba(0,0,0,0);
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.submit-button {
+    background-color: #6fffe9;
+    color: white;
+    border: none;
+    height: 45px;
+    width: 150px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 7.5%;
+}
+
+input[type=text]:hover {
+    border-bottom: #6fffe9 solid 5px;
+    transition: .5s;
+}
+input[type=text]:focus {
+content: none;
+border-left: none;
+border-right: none;
+border-top: none;
+border-bottom: #6fffe9 solid 5px;
+transition: .5s;
+}
+
+.songFile {
+    color: white;
+    border-radius: 5px;
+}
+
+.errorMessage {
+    color: #6fffe9;
+    font-weight: bold;
+    font-size: 15px;
+    text-align: center;
+}
+
+.exit {
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    right: 0px;
+    background-color: #6fffe9;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    text-align: center;
+}

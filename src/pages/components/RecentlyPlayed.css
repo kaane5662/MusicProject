@@ -1,0 +1,14 @@
+
+
+.background {
+    height: 800;
+    width: 800;
+    background-color: orange;
+    border-radius: 10px;
+    margin-left : 50px;
+    display: block;
+}
+
+.text {
+    padding: 40px;
+}

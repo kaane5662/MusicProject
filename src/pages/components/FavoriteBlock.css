@@ -1,0 +1,29 @@
+.container {
+    min-width: 175px;
+    min-height: auto;
+}
+
+.postImage {
+    background-color: red;
+    min-width: 175px;
+    min-height: 175px;
+    border-radius: 10px;
+    background-color: rgba(255,255,255,.1);
+}
+
+.content-1 {
+    line-height: 10px;
+    margin-top: -5px;
+}
+
+.song-name-1 {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    text-overflow: clip;
+}
+
+.artist-name-1 {
+    font-size: 15px;
+    color: white;
+}

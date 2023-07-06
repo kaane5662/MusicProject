@@ -1,0 +1,23 @@
+.navbarContainer {
+    min-height: 100vh;
+    min-width: 100vh;
+    padding: 10px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.navbar {
+    background-color: blue;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    
+
+}
+
+.tag {
+    color: white
+}
+
+
